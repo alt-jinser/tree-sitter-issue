@@ -9,15 +9,24 @@
       }
     },
     "_node": {
-      "type": "CHOICE",
+      "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "command"
+          "type": "STRING",
+          "value": "\\"
         },
         {
-          "type": "SYMBOL",
-          "name": "query"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "command"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "query"
+            }
+          ]
         }
       ]
     },
@@ -29,24 +38,15 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "\\"
+          "type": "SYMBOL",
+          "name": "ident"
         },
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "ident"
-            },
-            {
-              "type": "REPEAT",
-              "content": {
-                "type": "SYMBOL",
-                "name": "path"
-              }
-            }
-          ]
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "path"
+          }
         }
       ]
     },
@@ -65,7 +65,7 @@
     },
     "query": {
       "type": "STRING",
-      "value": "\\query"
+      "value": "query"
     }
   },
   "extras": [
