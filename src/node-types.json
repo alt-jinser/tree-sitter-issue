@@ -1,25 +1,6 @@
 [
   {
-    "type": "command",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "ident",
-          "named": true
-        },
-        {
-          "type": "path",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "path",
+    "type": "math",
     "named": true,
     "fields": {},
     "children": {
@@ -27,7 +8,11 @@
       "required": true,
       "types": [
         {
-          "type": "ident",
+          "type": "math",
+          "named": true
+        },
+        {
+          "type": "text",
           "named": true
         }
       ]
@@ -42,30 +27,30 @@
       "required": false,
       "types": [
         {
-          "type": "command",
+          "type": "math",
           "named": true
         },
         {
-          "type": "query",
+          "type": "text",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "/",
+    "type": "#",
     "named": false
   },
   {
-    "type": "\\",
+    "type": "text",
+    "named": true
+  },
+  {
+    "type": "{",
     "named": false
   },
   {
-    "type": "ident",
-    "named": true
-  },
-  {
-    "type": "query",
-    "named": true
+    "type": "}",
+    "named": false
   }
 ]

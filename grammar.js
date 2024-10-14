@@ -6,16 +6,15 @@ module.exports = grammar({
 
   rules: {
     source_file: $ => repeat($._node),
-    _node: $ => seq("\\", choice(
-      $.command,
-      $.query,
-    )),
+    _node: $ => choice(
+      $.text,
+      $.math,
+    ),
 
-    ident: _ => /[a-zA-Z][a-zA-Z0-9\-]*/,
-
-    command: $ => seq($.ident, repeat($.path)),
-    path: $ => seq("/", $.ident),
-
-    query: _ => "query",
+    text: _ => /[^{}\r\n]+/,
+    math: $ => seq(
+      "#",
+      "{", $._node, "}",
+    ),
   }
 });

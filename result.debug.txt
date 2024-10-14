@@ -1,0 +1,61 @@
+new_parse
+process version:0, version_count:1, state:1, row:0, col:0
+lex_internal state:1, row:0, column:0
+  consume character:'h'
+  consume character:'e'
+  consume character:'l'
+  consume character:'l'
+  consume character:'o'
+  consume character:' '
+  consume character:'#'
+lexed_lookahead sym:text, size:7
+shift state:2
+process version:0, version_count:1, state:2, row:0, col:7
+lex_internal state:1, row:0, column:7
+lex_internal state:0, row:0, column:7
+  consume character:'{'
+lexed_lookahead sym:{, size:1
+detect_error
+resume version:0
+skip_token symbol:{
+process version:0, version_count:1, state:0, row:0, col:8
+lex_internal state:0, row:0, column:8
+skip_unrecognized_character
+  consume character:'i'
+lex_internal state:0, row:0, column:9
+  consume character:'n'
+lex_internal state:0, row:0, column:10
+  skip character:' '
+lex_internal state:0, row:0, column:11
+  consume character:'m'
+lex_internal state:0, row:0, column:12
+  consume character:'a'
+lex_internal state:0, row:0, column:13
+  consume character:'t'
+lex_internal state:0, row:0, column:14
+  consume character:'h'
+lex_internal state:0, row:0, column:15
+  consume character:'}'
+lexed_lookahead sym:ERROR, size:7
+skip_token symbol:ERROR
+process version:0, version_count:1, state:0, row:0, col:15
+lex_internal state:0, row:0, column:15
+  consume character:'}'
+lexed_lookahead sym:}, size:1
+skip_token symbol:}
+process version:0, version_count:1, state:0, row:0, col:16
+lex_internal state:0, row:0, column:16
+  skip character:10
+lexed_lookahead sym:end, size:1
+recover_to_previous state:2, depth:2
+recover_eof
+process version:1, version_count:2, state:2, row:0, col:16
+reduce sym:source_file, child_count:1
+accept
+select_smaller_error symbol:source_file, over_symbol:ERROR
+done
+(source_file [0, 0] - [1, 0]
+  (text [0, 0] - [0, 7])
+  (ERROR [0, 7] - [0, 16]
+    (ERROR [0, 8] - [0, 15])))
+show.demo	   0.46 ms	    36 bytes/ms	(ERROR [0, 7] - [0, 16])

@@ -9,63 +9,42 @@
       }
     },
     "_node": {
-      "type": "SEQ",
+      "type": "CHOICE",
       "members": [
         {
-          "type": "STRING",
-          "value": "\\"
+          "type": "SYMBOL",
+          "name": "text"
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "command"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "query"
-            }
-          ]
+          "type": "SYMBOL",
+          "name": "math"
         }
       ]
     },
-    "ident": {
+    "text": {
       "type": "PATTERN",
-      "value": "[a-zA-Z][a-zA-Z0-9\\-]*"
+      "value": "[^{}\\r\\n]+"
     },
-    "command": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "ident"
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SYMBOL",
-            "name": "path"
-          }
-        }
-      ]
-    },
-    "path": {
+    "math": {
       "type": "SEQ",
       "members": [
         {
           "type": "STRING",
-          "value": "/"
+          "value": "#"
+        },
+        {
+          "type": "STRING",
+          "value": "{"
         },
         {
           "type": "SYMBOL",
-          "name": "ident"
+          "name": "_node"
+        },
+        {
+          "type": "STRING",
+          "value": "}"
         }
       ]
-    },
-    "query": {
-      "type": "STRING",
-      "value": "query"
     }
   },
   "extras": [
