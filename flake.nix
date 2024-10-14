@@ -31,9 +31,7 @@
             nodejs
             python310
             gcc
-            (tree-sitter.override (_old: {
-              webUISupport = true;
-            }))
+            tree-sitter
             topiary
             (rust-bin.stable.latest.default.override {
               extensions = [
